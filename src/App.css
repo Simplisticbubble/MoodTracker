@@ -1,0 +1,181 @@
+.calendar-container {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.day-names {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.day-tile {
+  aspect-ratio: 1;
+  min-width: 84.61px;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.day-tile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.day-number {
+  font-size: 0.9rem;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.mood-emoji {
+  font-size: 1.5rem;
+  align-self: center;
+}
+
+.notes-indicator {
+  align-self: flex-end;
+  font-size: 0.8rem;
+}
+/* MoodEditor.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mood-rating {
+  margin-bottom: 1.5rem;
+}
+
+.rating-options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+}
+
+.rating-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+}
+
+.rating-option:hover {
+  background-color: #f0f0f0;
+}
+
+.rating-option.selected {
+  background-color: #e0e0ff;
+}
+
+.emoji {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.label-text {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.mood-notes {
+  margin-bottom: 1.5rem;
+}
+
+.mood-notes textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  margin-top: 0.5rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: #4a6bdf;
+  color: white;
+  border: none;
+}
+
+.secondary {
+  background-color: white;
+  border: 1px solid #ddd;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
