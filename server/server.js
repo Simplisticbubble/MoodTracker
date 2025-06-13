@@ -10,7 +10,10 @@ const app = express();
 // app.use(cors());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://your-app-name.up.railway.app"],
+    origin: [
+      "http://localhost:3000",
+      "https://moodtracker-production-7a7a.up.railway.app/",
+    ],
     credentials: true,
   })
 );

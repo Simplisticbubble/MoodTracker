@@ -30,11 +30,14 @@ function Register() {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/register", {
-        username: formData.username,
-        email: formData.email,
-        password: formData.password,
-      });
+      const res = await axios.post(
+        "https://moodtracker-production-7a7a.up.railway.app/register",
+        {
+          username: formData.username,
+          email: formData.email,
+          password: formData.password,
+        }
+      );
 
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);
