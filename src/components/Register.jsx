@@ -31,7 +31,7 @@ function Register() {
 
     try {
       const res = await axios.post(
-        "https://moodtracker-production-7a7a.up.railway.app/register",
+        "mongodb://mongo:cGSTzNXIkZFBJKOGapjqAjUCJpGhdLpu@centerbeam.proxy.rlwy.net:41286/register",
         {
           username: formData.username,
           email: formData.email,

@@ -76,7 +76,7 @@ function Dashboard() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "https://moodtracker-production-7a7a.up.railway.app/moods",
+        "mongodb://mongo:cGSTzNXIkZFBJKOGapjqAjUCJpGhdLpu@centerbeam.proxy.rlwy.net:41286/moods",
         moodData,
         {
           headers: { "auth-token": token },

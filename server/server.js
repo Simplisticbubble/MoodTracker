@@ -10,7 +10,9 @@ const app = express();
 // app.use(cors());
 app.use(
   cors({
-    origin: ["https://moodtracker-production-7a7a.up.railway.app/"],
+    origin: [
+      "mongodb://mongo:cGSTzNXIkZFBJKOGapjqAjUCJpGhdLpu@centerbeam.proxy.rlwy.net:41286",
+    ],
     credentials: true,
   })
 );

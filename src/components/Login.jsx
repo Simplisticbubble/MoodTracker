@@ -12,7 +12,7 @@ function Login() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://moodtracker-production-7a7a.up.railway.app/login",
+        "mongodb://mongo:cGSTzNXIkZFBJKOGapjqAjUCJpGhdLpu@centerbeam.proxy.rlwy.net:41286/login",
         {
           username,
           password,
