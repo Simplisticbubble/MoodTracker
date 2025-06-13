@@ -11,10 +11,13 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/login", {
-        username,
-        password,
-      });
+      const res = await axios.post(
+        "https://natural-victory-production.up.railway.app/login",
+        {
+          username,
+          password,
+        }
+      );
 
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);
