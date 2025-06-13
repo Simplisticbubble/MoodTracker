@@ -30,14 +30,11 @@ function Register() {
     }
 
     try {
-      const res = await axios.post(
-        "mongodb://mongo:cGSTzNXIkZFBJKOGapjqAjUCJpGhdLpu@centerbeam.proxy.rlwy.net:41286/register",
-        {
-          username: formData.username,
-          email: formData.email,
-          password: formData.password,
-        }
-      );
+      const res = await axios.post("http://localhost:5000/register", {
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+      });
 
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);

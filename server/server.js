@@ -7,15 +7,7 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET || "your-fallback-secret";
 
 const app = express();
-// app.use(cors());
-app.use(
-  cors({
-    origin: [
-      "mongodb://mongo:cGSTzNXIkZFBJKOGapjqAjUCJpGhdLpu@centerbeam.proxy.rlwy.net:41286",
-    ],
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 // MongoDB connection with explicit database

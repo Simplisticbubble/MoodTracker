@@ -26,7 +26,7 @@ function Dashboard() {
       try {
         console.log("Verifying token with backend...");
         const verification = await axios.get(
-          "https://moodtracker-production-7a7a.up.railway.app/api/verify-token",
+          "http://localhost:5000/api/verify-token",
           { headers: { "auth-token": token } }
         );
 
@@ -37,12 +37,9 @@ function Dashboard() {
         }
 
         console.log("Token valid - loading moods...");
-        const moodsResponse = await axios.get(
-          "https://moodtracker-production-7a7a.up.railway.app/moods",
-          {
-            headers: { "auth-token": token },
-          }
-        );
+        const moodsResponse = await axios.get("http://localhost:5000/moods", {
+          headers: { "auth-token": token },
+        });
 
         setMoods(
           moodsResponse.data.map((m) => ({ ...m, date: new Date(m.date) }))
@@ -76,7 +73,7 @@ function Dashboard() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "mongodb://mongo:cGSTzNXIkZFBJKOGapjqAjUCJpGhdLpu@centerbeam.proxy.rlwy.net:41286/moods",
+        "http://localhost:5000/moods",
         moodData,
         {
           headers: { "auth-token": token },
