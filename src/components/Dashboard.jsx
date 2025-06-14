@@ -71,49 +71,32 @@ function Dashboard() {
     setSelectedDate(day);
     setShowEditor(true);
   };
-  const fetchMoods = async () => {
+
+  const handleSaveMood = async (moodData) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(
+      const response = await axios.post(
         "https://natural-victory-production.up.railway.app/moods",
+        moodData,
         {
           headers: { "auth-token": token },
         }
       );
-      setMoods(
-        response.data.map((m) => ({
-          ...m,
-          date: new Date(m.date),
-        }))
-      );
-    } catch (error) {
-      console.error("Failed to fetch moods:", error);
-    }
-  };
 
-  const handleSaveMood = async (date, mood, note) => {
-    try {
-      // Create date in UTC but keep local date values
-      const utcDate = new Date(
-        Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
-      );
+      setMoods((prev) => {
+        const existingIndex = prev.findIndex((m) =>
+          isSameDay(new Date(m.date), moodData.date)
+        );
 
-      await axios.post(
-        "/moods",
-        {
-          date: utcDate.toISOString(), // Send as ISO string
-          mood,
-          note,
-        },
-        {
-          headers: { "auth-token": localStorage.getItem("token") },
-        }
-      );
+        return existingIndex >= 0
+          ? prev.map((m, i) => (i === existingIndex ? response.data : m))
+          : [...prev, response.data];
+      });
 
-      // Refresh moods
-      await fetchMoods();
+      setShowEditor(false);
     } catch (error) {
       console.error("Failed to save mood:", error);
+      setAuthError("Failed to save. Please try again.");
     }
   };
 
